@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataTables Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <style>
+        .container {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Student Database</h2>
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Student List</h4>
+            </div>
+            <div class="card-body">
+                <table id="studentTable" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Major</th>
+                            <th>Age</th>
+                            <th>GPA</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>Ahmad Fauzi</td>
+                            <td>ahmad@example.com</td>
+                            <td>Computer Science</td>
+                            <td>22</td>
+                            <td>3.8</td>
+                            <td><span class="badge bg-success">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Lina Mariana</td>
+                            <td>lina@example.com</td>
+                            <td>Information Systems</td>
+                            <td>21</td>
+                            <td>3.5</td>
+                            <td><span class="badge bg-success">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>003</td>
+                            <td>Budi Santoso</td>
+                            <td>budi@example.com</td>
+                            <td>Data Science</td>
+                            <td>23</td>
+                            <td>3.9</td>
+                            <td><span class="badge bg-success">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>004</td>
+                            <td>Anisa Putri</td>
+                            <td>anisa@example.com</td>
+                            <td>Cyber Security</td>
+                            <td>22</td>
+                            <td>3.7</td>
+                            <td><span class="badge bg-success">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>005</td>
+                            <td>Rudi Hermawan</td>
+                            <td>rudi@example.com</td>
+                            <td>Software Engineering</td>
+                            <td>24</td>
+                            <td>3.6</td>
+                            <td><span class="badge bg-warning text-dark">Probation</span></td>
+                        </tr>
+                        <tr>
+                            <td>006</td>
+                            <td>Siti Nuraini</td>
+                            <td>siti@example.com</td>
+                            <td>Computer Science</td>
+                            <td>20</td>
+                            <td>3.4</td>
+                            <td><span class="badge bg-success">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>007</td>
+                            <td>Dian Kusuma</td>
+                            <td>dian@example.com</td>
+                            <td>Information Systems</td>
+                            <td>21</td>
+                            <td>3.2</td>
+                            <td><span class="badge bg-warning text-dark">Probation</span></td>
+                        </tr>
+                        <tr>
+                            <td>008</td>
+                            <td>Agus Wijaya</td>
+                            <td>agus@example.com</td>
+                            <td>Artificial Intelligence</td>
+                            <td>23</td>
+                            <td>3.9</td>
+                            <td><span class="badge bg-success">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>009</td>
+                            <td>Maya Indah</td>
+                            <td>maya@example.com</td>
+                            <td>Computer Science</td>
+                            <td>22</td>
+                            <td>3.0</td>
+                            <td><span class="badge bg-danger">Academic Warning</span></td>
+                        </tr>
+                        <tr>
+                            <td>010</td>
+                            <td>Eko Prasetyo</td>
+                            <td>eko@example.com</td>
+                            <td>Software Engineering</td>
+                            <td>24</td>
+                            <td>3.8</td>
+                            <td><span class="badge bg-success">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#studentTable').DataTable({
+                responsive: true,
+                lengthMenu: [5, 10, 25, 50],
+                pageLength: 5
+            });
+        });
+    </script>
+</body>
+</html>
