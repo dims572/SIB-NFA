@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Produk</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { width: 50%; margin: auto; }
+        .produk-item { padding: 10px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📦 Manajemen Produk</h2>
+        
+        <!-- Form Tambah Produk -->
+        <form id="tambahProdukForm">
+            <input type="text" id="namaProduk" placeholder="Nama Produk" required>
+            <input type="number" id="hargaProduk" placeholder="Harga" required>
+            <button type="submit">➕ Tambah Produk</button>
+        </form>
+
+        <!-- Daftar Produk -->
+        <h3>📋 Daftar Produk</h3>
+        <div id="produkContainer"></div>
+    </div>
+
+    <script>
+        let produkList = [
+    { id: 1, nama: "Laptop", harga: 12000000 },
+    { id: 2, nama: "Smartphone", harga: 5000000 },
+    { id: 3, nama: "Tablet", harga: 7000000 },
+    { id: 4, nama: "Headphone", harga: 1500000 },
+    { id: 5, nama: "Smartwatch", harga: 3000000 }
+];
+
+// Fungsi menampilkan produk
+function tampilkanProduk() {
+    const container = document.getElementById("produkContainer");
+    container.innerHTML = "";
+
+    produkList.forEach(({ id, nama, harga }) => {
+        const produkItem = document.createElement("div");
+        produkItem.classList.add("produk-item");
+        produkItem.innerHTML = `
+            <span>📌 ${nama} - Rp ${harga.toLocaleString()}</span>
+            <button onclick="hapusProduk(${id})">❌ Hapus</button>
+        `;
+        container.appendChild(produkItem);
+    });
+}
+
+// Fungsi menambah produk
+function tambahProduk(id, nama, harga) {
+    produkList = [...produkList, { id, nama, harga }];
+    tampilkanProduk();
+}
+
+// Fungsi menghapus produk dengan Rest Parameter
+function hapusProduk(id) {
+    produkList = produkList.filter(produk => produk.id !== id);
+    tampilkanProduk();
+}
+
+// Event listener untuk menambah produk
+document.getElementById("tambahProdukForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    const nama = document.getElementById("namaProduk").value;
+    const harga = parseInt(document.getElementById("hargaProduk").value);
+    
+    if (nama && harga) {
+        const idBaru = produkList.length ? produkList[produkList.length - 1].id + 1 : 1;
+        tambahProduk(idBaru, nama, harga);
+        document.getElementById("tambahProdukForm").reset();
+    }
+});
+
+// Menampilkan produk saat pertama kali halaman dimuat
+tampilkanProduk();
+    </script>
+</body>
+</html>
